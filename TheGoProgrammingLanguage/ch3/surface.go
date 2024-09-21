@@ -25,7 +25,7 @@ func checkErr(err error) {
 	}
 }
 
-func main() {
+func Surface() {
 	f, err := os.Create("surface.html")
 	checkErr(err)
 
