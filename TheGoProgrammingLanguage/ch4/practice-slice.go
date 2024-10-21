@@ -14,6 +14,17 @@ func alterSliceByRef(s *[]int) {
 	*s = append(*s, 200)
 }
 
+func loopOverSliceRef(s *[]int) {
+	fmt.Print("[")
+	for idx, val := range *s {
+		fmt.Printf("(%d, %d)", idx, val)
+		if idx != len(*s)-1 {
+			fmt.Print(", ")
+		}
+	}
+	fmt.Println("]")
+}
+
 func Slice() {
 	// initializing slice in various ways
 	// using array slicing
@@ -61,4 +72,26 @@ func Slice() {
 	// but the underlying array will not get affected
 	alterSliceByRef(&s)
 	fmt.Println(arr, s)
+
+	fmt.Print("[")
+	// Looping over an arr/slice
+	for i := 0; i < len(arr); i++ {
+		fmt.Printf("%d", arr[i])
+		if i != len(arr)-1 {
+			fmt.Print(", ")
+		}
+	}
+	fmt.Println("]")
+
+	fmt.Print("[")
+	for idx, val := range arr {
+		fmt.Printf("(%d, %d)", idx, val)
+		if idx != len(arr)-1 {
+			fmt.Print(", ")
+		}
+	}
+	fmt.Println("]")
+
+	// Looping over slice ref
+	loopOverSliceRef(&s)
 }
