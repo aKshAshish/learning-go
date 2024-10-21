@@ -77,6 +77,7 @@ func getCwd() (string, error) {
 	return filepath.Abs(filepath.Dir("."))
 }
 
+// getPartitions: calculates the number of partitions that can be created of size CHUNK_SIZE.
 func getPartitions(size int) int {
 	partitions := size / CHUNK_SIZE
 	if size%CHUNK_SIZE != 0 {
